@@ -1,17 +1,27 @@
 import copy
 import numpy as np
 from sklearn.metrics import accuracy_score
+from Pyfhel import Pyfhel
 
-class LogisticRegression():
+
+class EncryptedLogisticRegression():
     def __init__(self):
         self.losses = []
         self.train_accuracies = []
+
+
 
     def fit(self, x, y, epochs):
         x = self._transform_x(x)
         y = self._transform_y(y)
 
+        plainWeights = np.zeros(x.shape[1])
+        self.weights = []
+        for i in plainWeights:
+            pass                                        # convert 0s to Pyfhel Plaintexts
+
         self.weights = np.zeros(x.shape[1])
+
         self.bias = 0
 
         for i in range(epochs):
@@ -67,3 +77,4 @@ class LogisticRegression():
     def _transform_y(self, y):
         y = copy.deepcopy(y)
         return y.values.reshape(y.shape[0], 1)
+
