@@ -1,13 +1,13 @@
 from sklearn.metrics import accuracy_score
 from sklearn.linear_model import LogisticRegression
 from logistic_regression import LogisticRegression as CustomLogisticRegression
-from data import x_train, x_test, y_train, y_test
+from data import x_train, y_train
 import os
 import pickle
 import socket
 
-MODEL_DIRECTORY = '../models'
-MODEL_PATH = '../models/Custom_Logistic_Regression.pkl'
+MODEL_DIRECTORY = '../../models'
+MODEL_PATH = '../../models/Custom_Logistic_Regression.pkl'
 
 PORT = 5050
 SERVER_IP = socket.gethostbyname(socket.gethostname())
@@ -113,10 +113,18 @@ model = LogisticRegression(solver='newton-cg', max_iter=150)
 model.fit(x_train, y_train)
 pred2 = model.predict(xClient)
 accuracy2 = accuracy_score(yClient, pred2)
-controlAccuracyMessage = "Built-in Regression Accuracy" + str(accuracy2)
+controlAccuracyMessage = "Built-in Regression Accuracy: " + str(accuracy2)
 print(controlAccuracyMessage)
 
 conn.send(controlAccuracyMessage.encode(FORMAT))
 
 
 conn.close()
+
+
+
+"hello world"
+
+"good mornning"
+
+
