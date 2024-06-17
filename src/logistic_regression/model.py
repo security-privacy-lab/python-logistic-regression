@@ -49,6 +49,11 @@ class LogisticRegression():
         probabilities = self._sigmoid(x_dot_weights)
         return [1 if p > 0.5 else 0 for p in probabilities]
 
+    def predictSingle(self, x):
+        x_dot_weight = np.matmul(x, self.weights.transpose()) + self.bias
+        probability = self._sigmoid_function(x_dot_weight)
+        return 1 if probability > 0.5 else 0
+
     def _sigmoid(self, x):
         return np.array([self._sigmoid_function(value) for value in x])
 
