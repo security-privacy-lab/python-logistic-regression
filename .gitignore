@@ -128,3 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 /models/Custom_Logistic_Regression.pkl
+/models/Custom_Logistic_Regression2.pkl
