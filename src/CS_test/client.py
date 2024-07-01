@@ -1,8 +1,7 @@
 import time
 
-from data import x_train, x_test, y_train, y_test
-# x_test = {'a': 1, 'b': 2}
-# y_test = [1, 2, 3, 4]
+# from data import x_test, y_test
+from data import x_scaled_test, y_test
 import pickle
 import socket
 
@@ -15,7 +14,8 @@ FORMAT = "utf-8"
 
 
 
-xPickle = pickle.dumps(x_test)
+# xPickle = pickle.dumps(x_test)
+xPickle = pickle.dumps(x_scaled_test)
 xByteSize = len(xPickle)
 print(xByteSize)
 
