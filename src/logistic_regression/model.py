@@ -25,6 +25,9 @@ class LogisticRegression():
             self.train_accuracies.append(accuracy_score(y, pred_to_class))
             self.losses.append(loss)
 
+        self.weights /= 10000
+        self.bias /= 10000
+
     def compute_loss(self, y_true, y_pred):
         # binary cross entropy
         y_zero_loss = y_true * np.log(y_pred + 1e-9)
@@ -41,7 +44,8 @@ class LogisticRegression():
         return gradients_w, gradient_b
 
     def update_model_parameters(self, error_w, error_b):
-        self.weights = self.weights - 0.1 * error_w
+        # self.weights = self.weights - 0.1 * error_w
+        self.weights = self.weights - (0.1 * error_w + self.weights * 0.05)
         self.bias = self.bias - 0.1 * error_b
 
     def predict(self, x):
