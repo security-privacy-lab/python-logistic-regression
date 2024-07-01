@@ -1,15 +1,15 @@
-from sklearn.metrics import accuracy_score
-from sklearn.linear_model import LogisticRegression
+# from sklearn.metrics import accuracy_score                # implement storage of sklearn trained model
+# from sklearn.linear_model import LogisticRegression
 from logistic_regression import LogisticRegression as CustomLogisticRegression
 from data import x_train, y_train
-from data import x_test, y_test
+from data import x_scaled_train, y_train
 import os
 import pickle
 import socket
 
 
 MODEL_DIRECTORY = '../../models'
-MODEL_PATH = '../../models/Custom_Logistic_Regression.pkl'
+MODEL_PATH = '../../models/Custom_Logistic_Regression2.pkl'
 
 PORT = 5050
 SERVER_IP = socket.gethostbyname(socket.gethostname())
@@ -23,6 +23,7 @@ FORMAT = "utf-8"
 print(os.path.exists(MODEL_DIRECTORY))
 
 if not os.path.exists(MODEL_PATH):
+# if True:
     print(f"[MODEL NOT FOUND] No model at {MODEL_PATH}")
     lr = CustomLogisticRegression()
     lr.fit(x_train, y_train, epochs=150)
