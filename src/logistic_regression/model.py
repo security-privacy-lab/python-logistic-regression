@@ -1,8 +1,10 @@
 import copy
 import numpy as np
 from sklearn.metrics import accuracy_score
+import tenseal as ts
 
 class LogisticRegression():
+    SIGMOID_POLY = [0.5, 0.197, 0, -0.004]
     def __init__(self):
         self.losses = []
         self.train_accuracies = []
@@ -57,6 +59,11 @@ class LogisticRegression():
         x_dot_weight = np.matmul(x, self.weights.transpose()) + self.bias
         probability = self._sigmoid_function(x_dot_weight)
         return 1 if probability > 0.5 else 0
+
+    def predictEncryptedSingle(self, x):
+        enc_x_dot_weight = x.dot(self.weights.transpose()) + self.bias
+        enc_probability = enc_x_dot_weight.polyval(self.SIGMOID_POLY)
+        return enc_probability
 
     def _sigmoid(self, x):
         return np.array([self._sigmoid_function(value) for value in x])
