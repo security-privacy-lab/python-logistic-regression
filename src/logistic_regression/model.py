@@ -60,6 +60,11 @@ class LogisticRegression():
         probability = self._sigmoid_function(x_dot_weight)
         return 1 if probability > 0.5 else 0
 
+    def predictSingleProb(self, x):
+        x_dot_weight = np.matmul(x, self.weights.transpose()) + self.bias
+        probability = self._sigmoid_function(x_dot_weight)
+        return probability
+
     def predictEncryptedSingle(self, x):
         enc_x_dot_weight = x.dot(self.weights.transpose()) + self.bias
         enc_probability = enc_x_dot_weight.polyval(self.SIGMOID_POLY)
