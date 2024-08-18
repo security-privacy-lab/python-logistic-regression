@@ -1,5 +1,5 @@
 from logistic_regression import LogisticRegression as CustomLogisticRegression
-from data import x_scaled_train, y_train
+from data.breastCancer import x_scaled_train, y_train
 import os
 import pickle
 

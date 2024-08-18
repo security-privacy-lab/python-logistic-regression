@@ -1,17 +1,12 @@
-import time
-
-# from data import x_test, y_test
-from data import x_scaled_test, y_test
+from data.breastCancer import x_scaled_test, y_test
+from data.constants import *
 import pickle
 import socket
 
-
-PORT = 5050
-SERVER_IP = socket.gethostbyname(socket.gethostname())
-ADDRESS_TUPLE = (SERVER_IP, PORT)
-FORMAT = "utf-8"
-
-
+# PORT = 5050
+# SERVER_IP = socket.gethostbyname(socket.gethostname())
+# ADDRESS_TUPLE = (SERVER_IP, PORT)
+# FORMAT = "utf-8"
 
 
 # xPickle = pickle.dumps(x_test)
@@ -27,7 +22,6 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(ADDRESS_TUPLE)
 
 
-
 # Send the size of the pickled DataFrame
 client.send(pickle.dumps(xByteSize))
 print(f"Sent size: {xByteSize} bytes")
@@ -40,6 +34,7 @@ print(f"Sent DataFrame")
 
 print(client.recv(4096).decode(FORMAT))
 
+
 # Send the size of the pickled Series
 client.send(pickle.dumps(yByteSize))
 print(f"Sent size: {yByteSize} bytes")
@@ -49,9 +44,6 @@ print(client.recv(4096).decode(FORMAT))
 # Send the actual pickled Series
 client.sendall(yPickle)
 print(f"Sent Series")
-
-# Ensure the data is fully sent before closing the connection
-time.sleep(1)
 
 
 print(client.recv(4096).decode(FORMAT))

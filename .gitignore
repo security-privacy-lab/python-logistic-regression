@@ -129,3 +129,14 @@ dmypy.json
 .pyre/
 /models/Custom_Logistic_Regression.pkl
 /models/Custom_Logistic_Regression2.pkl
+/models/Custom_Logistic_Regression1.pkl
+/src/tenseal/test1.py
+/data/rotten_tomatoes_movie_reviews.csv
+/data/review_text.pkl
+/data/review_sentiment.pkl
+/models/glove-wiki-gigaword-100.pkl
+/models/Custom_Logistic_Regression1_OLD.pkl
+/data/rotten_tomatoes/all-mpnet-base-v2/review_sentiment_test.pkl
+/data/rotten_tomatoes/all-mpnet-base-v2/review_sentiment_train.pkl
+/data/rotten_tomatoes/all-mpnet-base-v2/review_text_test.pkl
+/data/rotten_tomatoes/all-mpnet-base-v2/review_text_train.pkl

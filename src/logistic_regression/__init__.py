@@ -1,2 +1,1 @@
 from logistic_regression.model import LogisticRegression
-from logistic_regression.pretrained import lr
